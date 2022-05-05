@@ -11,7 +11,7 @@ group = "com.rocketraman"
 version = "1.0-SNAPSHOT"
 
 // this block seems to cause the problem with `--jvm-target`
-configurations.all {
+configurations.matching { it.name != "detekt" }.all {
     resolutionStrategy.eachDependency {
         if (requested.group == "org.jetbrains.kotlin") {
             useVersion("1.6.10")
